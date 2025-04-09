@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Gestión de Usuarios</h2>
+
+    <form method="POST" action="/usuarios/agregar" class="mt-4 p-4 bg-light rounded shadow-sm">
+        <h4>Agregar Usuario</h4>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" id="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido:</label>
+            <input type="text" name="apellido" class="form-control" id="apellido" required>
+        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad:</label>
+            <input type="number" name="edad" class="form-control" id="edad" required>
+        </div>
+        <div class="mb-3">
+            <label for="contraseña" class="form-label">Contraseña:</label>
+            <input type="password" name="contraseña" class="form-control" id="contraseña" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" name="email" class="form-control" id="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+    </form>
+
+    <hr class="my-4">
+
+    <h4>Lista de Usuarios</h4>
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+                <td>{{ usuario.edad }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>
+                    <a href="/usuarios/editar/{{ usuario._id }}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="/usuarios/eliminar/{{ usuario._id }}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

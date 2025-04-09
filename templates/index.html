@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Bienvenido a la Biblioteca</h2>
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Usuarios</div>
+                <div class="card-body">
+                    <h5 class="card-title">Total: {{ total_usuarios }}</h5>
+                    <a href="/usuarios" class="btn btn-light">Ver Usuarios</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Libros</div>
+                <div class="card-body">
+                    <h5 class="card-title">Total: {{ total_libros }}</h5>
+                    <a href="/libros" class="btn btn-light">Ver Libros</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-header">Préstamos</div>
+                <div class="card-body">
+                    <h5 class="card-title">Activos: {{ total_prestamos }}</h5>
+                    <a href="/prestamos" class="btn btn-light">Ver Préstamos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Reservas</div>
+                <div class="card-body">
+                    <h5 class="card-title">Activas: {{ total_reservas }}</h5>
+                    <a href="/reservas" class="btn btn-light">Ver Reservas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
